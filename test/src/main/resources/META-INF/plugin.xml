@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>org.yinan.test</id>
+    <name>你好老王</name>
+    <vendor email="laowang@qq.com" url="https://wongwongsu.com">laowang</vendor>
+
+    <description><![CDATA[
+        2ewwew
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="Click.Click" class="org.yinan.ClickAction" text="Click" description="Click" icon="AllIcons.Actions.Search">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

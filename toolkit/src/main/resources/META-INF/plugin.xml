@@ -1,0 +1,54 @@
+<idea-plugin>
+    <id>org.yinan.toolkit</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.java</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="org.yinan.ToolKit" text="ToolKit" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+        </group>
+
+        <action id="Toolkit.Base64" class="org.yinan.action.Base64OperateAction"
+                text="Base64" description="Base64">
+            <add-to-group group-id="org.yinan.ToolKit" />
+        </action>
+
+        <action id="Toolkit.Json.CopyAsJsonAction" class="org.yinan.action.CopyAsJsonAction"
+                text="Copy As Json" description="Copy As json">
+            <add-to-group group-id="org.yinan.ToolKit" anchor="first"/>
+        </action>
+
+        <action id="Toolkit.Json.JsonFormat" class="org.yinan.action.JsonFormatAction"
+                text="Json Format" description="Json format">
+            <add-to-group group-id="org.yinan.ToolKit"/>
+        </action>
+
+        <action id="Toolkit.xml.XmlFormat" class="org.yinan.action.XmlFormatAction"
+                text="Xml Format" description="Xml format">
+            <add-to-group group-id="org.yinan.ToolKit"/>
+        </action>
+
+        <action id="Toolkit.Url" class="org.yinan.action.UrlOperateAction"
+                text="Url Encode/Decode" description="Url encode/decode">
+            <add-to-group group-id="org.yinan.ToolKit"/>
+        </action>
+
+
+    </actions>
+</idea-plugin>
