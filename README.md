@@ -13,6 +13,9 @@
 * 效果图如下：
 
 ![1.png](./pic/1.png)
-![2.png](./pic/2.png)
 
 同时新增了部分功能，将`copy-as-json`功能整合到了`RestfulTool`
+
+* 效果图
+
+![2.png](./pic/2.png)
