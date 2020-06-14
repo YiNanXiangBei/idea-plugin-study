@@ -21,7 +21,7 @@
     <actions>
         <!-- Add your actions here -->
         <action id="Click.Click" class="org.yinan.ClickAction" text="Click" description="Click" icon="AllIcons.Actions.Search">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="GoToMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>

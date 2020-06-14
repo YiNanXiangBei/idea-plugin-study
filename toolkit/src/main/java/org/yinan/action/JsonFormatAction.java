@@ -11,7 +11,7 @@ import org.yinan.ui.JsonFormat;
  * @author yinan
  * @date 2020/6/2
  */
-public class JsonFormatAction extends BaseAnAction {
+public class  JsonFormatAction extends BaseAnAction {
 
 
     @Override

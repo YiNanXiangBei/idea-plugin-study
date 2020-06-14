@@ -2,6 +2,7 @@ package org.yinan.ui;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.ui.JBColor;
 import org.dom4j.Document;
 import org.dom4j.io.OutputFormat;

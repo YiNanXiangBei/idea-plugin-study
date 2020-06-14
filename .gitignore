@@ -1,1 +1,4 @@
 /toolkit/build/
+/toolkit/.gradle/
+/test/build/
+/test/.gradle/

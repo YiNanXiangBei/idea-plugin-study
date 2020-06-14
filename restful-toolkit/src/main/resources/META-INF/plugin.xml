@@ -1,0 +1,58 @@
+<idea-plugin>
+    <id>org.yinan.restful-toolkit</id>
+    <name>restful-toolkit-magic</name>
+    <vendor email="" url="https://blog.wongwongsu.com">blog.wongwongsu.com</vendor>
+
+    <description><![CDATA[
+        restful toolkit magic version based on restful toolkit
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+<!--    如果该插件还依赖来其他插件，则配置对应的插件id-->
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.properties</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+
+<!--    声明该插件对idea core或其他插件的扩展-->
+    <extensions defaultExtensionNs="com.intellij">
+<!--        应用程序级服务-->
+        <applicationService serviceImplementation="org.yinan.core.configuration.AppSettingsState" />
+        <!-- 系统设置，可以在setting中找到关于restful tool 的设置-->
+        <applicationConfigurable parentId="tools"
+                                 instance="org.yinan.core.configuration.AppSettingsConfigurable"
+                                 id="org.yinan.core.configuration.AppSettingsConfigurable"
+                                 displayName="Restful Tool" />
+<!--        项目级服务，感觉这些服务和spring中的bean有点像-->
+        <projectService serviceInterface="org.yinan.core.service.RestfulToolService"
+                        serviceImplementation="org.yinan.core.service.impl.RestfulToolServiceImpl" />
+
+        <projectService serviceImplementation="org.yinan.core.view.search.GotoRequestConfiguration" />
+
+        <toolWindow id="RestfulTool" anchor="right"
+                    factoryClass="org.yinan.core.view.window.RestfulToolWindowFactory" order="last"
+                    icon="/icons/service.png"/>
+
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="Tool.GotoRequestService" class="org.yinan.core.view.search.GotoRequestAction"
+                text="Request _Service" description="Goto request service"
+                icon="AllIcons.Actions.Search">
+<!--            text中下划线表示字母为快捷键-->
+            <add-to-group group-id="GoToTargetEx" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SLASH"/>
+        </action>
+
+        <action id="Tool.CopyAsJsonAction" class="org.yinan.core.view.tojson.CopyAsJsonAction"
+                text="Copy As JsonAction" description="Copy As jsonAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

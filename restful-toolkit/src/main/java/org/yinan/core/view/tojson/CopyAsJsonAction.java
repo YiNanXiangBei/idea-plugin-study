@@ -1,4 +1,4 @@
-package org.yinan.action;
+package org.yinan.core.view.tojson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,8 +28,8 @@ import com.intellij.psi.util.PsiTypesUtil;
 import com.intellij.psi.util.PsiUtil;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import org.yinan.utils.GsonFormatUtil;
 
+import javax.activation.DataHandler;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -42,10 +42,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
 /**
  * @author yinan
- * @date 2020/6/1
+ * @date 2020/6/11
  */
 public class CopyAsJsonAction extends AnAction {
 
@@ -120,7 +119,6 @@ public class CopyAsJsonAction extends AnAction {
             Gson gson = new GsonBuilder().create();
             //字段转为json字符串
             String json = GsonFormatUtil.gsonFormat(gson, fieldMap);
-
             StringSelection selection = new StringSelection(json);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, selection);
@@ -147,7 +145,7 @@ public class CopyAsJsonAction extends AnAction {
                 //有注解，拿注解的字段
                 if (annotations.length > 0 && containsAnnotation(annotations)) {
                     fieldMap.put(name, "");
-                //java基本类型
+                    //java基本类型
                 } else if (type instanceof PsiPrimitiveType) {
                     fieldMap.put(name, PsiTypesUtil.getDefaultValue(type));
                 } else {
@@ -157,7 +155,7 @@ public class CopyAsJsonAction extends AnAction {
                         fieldMap.put(name, PROPERTIES_TYPES.get(fieldTypeName));
                         //数组类型
                     } else if (type instanceof PsiArrayType) {
-                        List<Object> list = new ArrayList<>();
+                        java.util.List<Object> list = new ArrayList<>();
                         //这里可能就是数组的真实类型
                         PsiType deepType = type.getDeepComponentType();
                         //
